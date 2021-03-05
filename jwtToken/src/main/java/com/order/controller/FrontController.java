@@ -125,11 +125,13 @@ public class FrontController {
 	{
 		String text = "user already exit";
 		UserCredential user = userCredentialRepo.findByPhoneNumber(userCredential.getPhoneNumber());
-		if(user != null) {
+		if(user == null) {
+			userCredentialRepo.save(userCredential);
 			text= "user sucessfully inserted";
 		}
 		return text;
 	}
+	
 	@GetMapping("/authenticate/authEvent")
 	public List<AuthEvent> findAll(){
 		return ser.findAllInAuthEvent();
