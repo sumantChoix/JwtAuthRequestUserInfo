@@ -93,6 +93,13 @@ public class UserInfoService
    	return userInfoRepo.findByUserName(phone);
   }
 
+  
+  public List<AuthEvent> findAllInAuthEvent(){
+	  return authrepo.findAll();
+  }
 
+  public List<UserInfo> findAllinUserInfo(){
+	  return userInfoRepo.findAll();
+  }
    
 }

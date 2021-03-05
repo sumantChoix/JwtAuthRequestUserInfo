@@ -125,6 +125,16 @@ public class FrontController {
 	{
 		return userCredentialRepo.save(userCredential);
 	}
+	@GetMapping("/authenticate/authEvent")
+	public List<AuthEvent> findAll(){
+		return ser.findAllInAuthEvent();
+	}
+	
+	@GetMapping("/authenticate/userInfo")
+	public List<UserInfo> findAllUserInfo(){
+		return ser.findAllinUserInfo();
+	}
+	
 	
 	
 }
