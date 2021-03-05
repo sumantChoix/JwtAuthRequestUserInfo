@@ -121,9 +121,14 @@ public class FrontController {
 	}
 
 	@PostMapping("/authenticate/inputUser")
-	public UserCredential createUserCredential(@RequestBody UserCredential userCredential)
+	public String createUserCredential(@RequestBody UserCredential userCredential)
 	{
-		return userCredentialRepo.save(userCredential);
+		String text = "user already exit";
+		UserCredential user = userCredentialRepo.findByPhoneNumber(userCredential.getPhoneNumber());
+		if(user != null) {
+			text= "user sucessfully inserted";
+		}
+		return text;
 	}
 	@GetMapping("/authenticate/authEvent")
 	public List<AuthEvent> findAll(){
