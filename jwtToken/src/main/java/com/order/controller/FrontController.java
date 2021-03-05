@@ -135,6 +135,9 @@ public class FrontController {
 		return ser.findAllinUserInfo();
 	}
 	
-	
+	@GetMapping("/authenticate/inputUser")
+	public List<UserCredential> findAllUserCredenfial(){
+		return userCredentialRepo.findAll();
+	}
 	
 }
